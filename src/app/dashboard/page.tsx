@@ -1,9 +1,8 @@
-import Link from 'next/link'
-import { getServerSession } from 'next-auth'
-import { redirect } from 'next/navigation'
-
-import { authOptions } from '@/lib/auth'
 import { Container } from '@/components/Container'
+import { getServerSession } from 'next-auth'
+import { authOptions } from '@/lib/auth'
+import { redirect } from 'next/navigation'
+import Link from 'next/link'
 import { TicketItem } from '@/app/dashboard/components/ticket'
 
 export default async function Dashboard() {
