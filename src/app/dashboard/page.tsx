@@ -34,7 +34,6 @@ export default async function Dashboard() {
           </Link>
         </div>
 
-
         <table className="min-w-full my-2">
           <thead>
             <tr>
@@ -55,6 +54,10 @@ export default async function Dashboard() {
 
           </tbody>
         </table>
+        {tickets.length === 0 && (
+          <h1 className="px-2 text-gray-600">Nenhum ticket aberto foi encontrado...</h1>
+        )}
+
       </main>
     </Container>
   )
