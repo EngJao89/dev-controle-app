@@ -38,4 +38,5 @@ export async function PATCH(request: Request){
   }catch(err){
     return NextResponse.json({ error: "Filed update ticket" }, { status: 400 })
   }
+
 }

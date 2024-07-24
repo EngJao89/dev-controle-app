@@ -12,7 +12,7 @@ interface ModalContextData {
 export const ModalContext = createContext({} as ModalContextData)
 
 export const ModalProvider = ({ children }: { children: ReactNode }) => {
-  const [visible, setVisible] = useState(true);
+  const [visible, setVisible] = useState(false);
 
   function handleModalVisible() {
     setVisible(!visible)
