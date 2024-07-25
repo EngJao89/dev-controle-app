@@ -1,9 +1,31 @@
-
 import { NextResponse } from 'next/server'
 import { getServerSession } from 'next-auth'
 import { authOptions } from '@/lib/auth'
 import prismaClient from '@/lib/prisma'
 
+export async function GET(request: Request){
+  const { searchParams } = new URL(request.url)
+  const customerEmail = searchParams.get("email")
+
+  if(!customerEmail || customerEmail === ""){
+    return NextResponse.json({ error: "Customer not found" }, { status: 400 })
+  }
+
+  try{
+    const customer = await prismaClient.customer.findFirst({
+      where:{
+        email: customerEmail 
+      }
+    })
+
+    return NextResponse.json(customer)
+
+  }catch(err){
+    return NextResponse.json({ error: "Customer not found" }, { status: 400 })
+  }
+
+  return NextResponse.json({ message: "RECEBIDO" })
+}
 
 export async function DELETE(request: Request){
   const session = await getServerSession(authOptions);
@@ -18,7 +40,6 @@ export async function DELETE(request: Request){
   if(!userId){
     return NextResponse.json({ error: "Failed delete customer" }, { status: 400 })
   }
-
 
   const findTickets = await prismaClient.ticket.findFirst({
     where:{
@@ -72,5 +93,4 @@ export async function POST(request: Request){
   }catch(err){
     return NextResponse.json({ error: "Failed crete new customer" }, { status: 400 })
   }
-
 }
