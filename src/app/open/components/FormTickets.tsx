@@ -4,7 +4,7 @@ import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import { api } from '@/lib/api'
-import {CustomerDataInfo} from "../../page"
+import { CustomerDataInfo } from "../../page"
 
 const schema = z.object({
   name: z.string().min(1, "O nome do chamado é obrigatório"),
@@ -29,7 +29,8 @@ export function FormTicket({ customer }: FormTicketProps) {
       customerId: customer.id
     })
 
-    console.log(response.data);
+    setValue("name", "")
+    setValue("description", "")
   }
 
   return (
