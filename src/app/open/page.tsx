@@ -48,7 +48,6 @@ export default function OpenTicket() {
       id: response.data.id,
       name: response.data.name
     })
-
   }
 
   return (

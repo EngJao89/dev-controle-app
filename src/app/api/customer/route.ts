@@ -23,8 +23,6 @@ export async function GET(request: Request){
   }catch(err){
     return NextResponse.json({ error: "Customer not found" }, { status: 400 })
   }
-
-  return NextResponse.json({ message: "RECEBIDO" })
 }
 
 export async function DELETE(request: Request){

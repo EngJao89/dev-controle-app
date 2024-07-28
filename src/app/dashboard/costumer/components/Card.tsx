@@ -8,7 +8,6 @@ export function CardCustomer({ customer }: { customer: CustomerProps }) {
   const router = useRouter();
 
   async function handleDeleteCustomer() {
-
     try {
       const response = await api.delete("/api/customer", {
         params: {
@@ -22,9 +21,7 @@ export function CardCustomer({ customer }: { customer: CustomerProps }) {
     } catch (err) {
       console.log(err);
     }
-
   }
-
 
   return (
     <article className="flex flex-col bg-gray-100 border-2 p-2 rounded-lg gap-2 hover:scale-105 duration-300">
